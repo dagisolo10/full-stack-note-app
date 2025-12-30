@@ -57,7 +57,7 @@ const NavBar = () => {
                     </Link>
                 )}
                 {user && location !== "/profile" && (
-                    <Link onClick={() => setMenu((p) => (p = !p))} to="/notes">
+                    <Link onClick={() => setMenu((p) => (p = !p))} to="/profile">
                         <p className="duration-500 text-primary-content hover:text-gray-700">Profile</p>
                     </Link>
                 )}
