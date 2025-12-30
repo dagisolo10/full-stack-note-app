@@ -16,6 +16,7 @@ import SearchNotesPage from "./pages/SearchNotesPage";
 import api from "./config/axios";
 import AdminDashboard from "./pages/AdminDashboard";
 import ProfilePage from "./pages/ProfilePage";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
     const location = useLocation().pathname;
@@ -65,6 +66,7 @@ const App = () => {
             </div>
 
             <AuthContext.Provider value={{ user, setUser, notes, setNotes, loading, fetching, setFetching }}>
+                <ScrollToTop />
                 {location !== "/login" && location !== "/signup" && <NavBar />}
 
                 <main className="relative z-10 pb-8 sm:pb-12">
