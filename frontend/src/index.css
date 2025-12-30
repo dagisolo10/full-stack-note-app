@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+    themes: dark --default;
+}
+
+.grid-box {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    grid-auto-rows: 60px;
+}
+
+.scrollbar-thin {
+    scrollbar-width: thin;
+}
+
+.background-glow {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at top, hsl(207, 100%, 50%, 15%) 0%, hsl(207, 100%, 50%, 10%) 40%, rgba(0, 0, 0) 100%);
+}
+/* background: radial-gradient(ellipse at top, rgba(16, 185, 129, 0.15) 0%, rgba(10, 80, 60, 0.1) 40%, rgba(0, 0, 0) 100%); */
+
+/* The elegant white-to-gray text gradient for headings */
+.text-gradient-muted {
+    background: linear-gradient(to bottom, #ffffff, #9e9e9e); /* white → gray-400 */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* The subtle glow that appears inside the card on hover */
+.card-glow-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem; /* same as rounded-2xl */
+    background: linear-gradient(to bottom right, rgba(var(--p, 0, 200, 130), 0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.group:hover .card-glow-overlay {
+    opacity: 1;
+}
+
+/* Optional: Glassmorphism card styling */
+.glass-card {
+    background-color: rgba(var(--b2, 30, 30, 30), 0.4); /* roughly bg-base-200/40 */
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.5s ease;
+}
+
+/* index.css */
+.note-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1400px;
+    /* margin: 0 auto; */
+}
+
+/* Glass effect for library cards */
+.library-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+}
+
+.library-card:hover {
+    border-color: rgba(var(--primary-rgb), 0.4);
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.05);
+}
