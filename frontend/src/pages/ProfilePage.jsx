@@ -36,7 +36,7 @@ const ProfilePage = () => {
 
                 <div className="relative flex flex-col md:flex-row items-center md:items-start gap-8 sm:gap-10">
                     {/* Avatar Section */}
-                    <div className="relative flex-shrink-0">
+                    <div className="relative shrink-0">
                         <div className="size-24 sm:size-28 md:size-32 rounded-2xl sm:rounded-3xl bg-linear-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center shadow-inner">
                             <User className="size-12 sm:size-14 md:size-16 text-primary opacity-80" />
                         </div>
@@ -86,10 +86,10 @@ const ProfilePage = () => {
 
 const InfoTile = ({ icon, label, value }) => (
     <div className="bg-white/5 border border-white/5 p-3 sm:p-4 rounded-xl sm:rounded-2xl flex items-center gap-3 sm:gap-4">
-        <div className="p-2 rounded-lg bg-base-300 text-primary opacity-70 flex-shrink-0">{React.cloneElement(icon, { size: 18 })}</div>
+        <div className="p-2 rounded-lg bg-base-300 text-primary opacity-70 shrink-0">{React.cloneElement(icon, { size: 18 })}</div>
         <div className="text-left min-w-0 flex-1">
             <p className="text-[10px] uppercase font-bold text-gray-500 tracking-wider mb-1">{label}</p>
-            <p className="text-sm sm:text-base font-semibold text-base-content/90 break-words">{value}</p>
+            <p className="text-sm sm:text-base font-semibold text-base-content/90 wrap-break-word">{value}</p>
         </div>
     </div>
 );
