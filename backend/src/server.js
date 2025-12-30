@@ -1,5 +1,4 @@
 const cors = require("cors");
-const path = require("path");
 const dotenv = require("dotenv");
 const express = require("express");
 const connectDB = require("./config/db");
@@ -14,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT;
 app.use(
     cors({
-        origin: [process.env.CLIENT_URL, "http://localhost:5173"],
+        origin: process.env.CLIENT_URL,
         credentials: true,
     })
 );
