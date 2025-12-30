@@ -33,14 +33,14 @@ const NavBar = () => {
     const toggleMenu = () => setMenu((prev) => !prev);
 
     return (
-        <header className="bg-transparent mb-4 w-full px-4 sm:px-6 py-3 flex gap-4 justify-end items-center">
+        <header className="bg-transparent mb-6 w-full px-4 sm:px-6 lg:px-8 py-4 flex gap-4 justify-end items-center">
             {/* Mobile slide-over menu */}
             <div
                 className={`fixed top-0 ${
                     menu ? "right-0" : "-right-full"
-                } transition-all duration-300 bg-gray-900/95 backdrop-blur-md h-screen w-3/4 max-w-xs z-50 sm:hidden flex flex-col gap-6 items-start p-6`}>
-                <button onClick={closeMenu} aria-label="Close navigation menu">
-                    <X className="sm:hidden" />
+                } transition-all duration-300 bg-gray-900/95 backdrop-blur-md h-screen w-3/4 max-w-xs z-50 sm:hidden flex flex-col gap-8 items-start p-8`}>
+                <button onClick={closeMenu} aria-label="Close navigation menu" className="mb-2 p-2 hover:bg-white/10 rounded-lg transition-colors">
+                    <X className="size-6" />
                 </button>
                 {location !== "/" && (
                     <Link
@@ -49,71 +49,76 @@ const NavBar = () => {
                             handleLogout();
                             closeMenu();
                         }}
-                        className="duration-500 text-primary-content hover:text-gray-700">
+                        className="duration-300 text-primary-content hover:text-primary text-lg font-medium py-2">
                         <span>Logout</span>
                     </Link>
                 )}
                 {location === "/" && (
-                    <Link to="/signup" onClick={closeMenu} className="duration-500 text-primary-content hover:text-gray-700">
+                    <Link to="/signup" onClick={closeMenu} className="duration-300 text-primary-content hover:text-primary text-lg font-medium py-2">
                         <span>Signup</span>
                     </Link>
                 )}
                 {location === "/" && (
-                    <Link to="/login" onClick={closeMenu} className="duration-500 text-primary-content hover:text-gray-700">
+                    <Link to="/login" onClick={closeMenu} className="duration-300 text-primary-content hover:text-primary text-lg font-medium py-2">
                         <span>Login</span>
                     </Link>
                 )}
                 {user && location !== "/profile" && (
-                    <Link onClick={closeMenu} to="/profile">
-                        <p className="duration-500 text-primary-content hover:text-gray-700">Profile</p>
+                    <Link onClick={closeMenu} to="/profile" className="duration-300 text-primary-content hover:text-primary text-lg font-medium py-2">
+                        <span>Profile</span>
                     </Link>
                 )}
                 {user && user.role === "admin" && location !== "/" && location !== "/admin-dashboard" && (
-                    <Link onClick={closeMenu} to="/admin-dashboard">
-                        <p className="duration-500 text-primary-content hover:text-gray-700">Admin Dashboard</p>
+                    <Link onClick={closeMenu} to="/admin-dashboard" className="duration-300 text-primary-content hover:text-primary text-lg font-medium py-2">
+                        <span>Admin Dashboard</span>
                     </Link>
                 )}
             </div>
 
             {/* Brand */}
-            <Link to="/" className="text-primary/70 mr-auto font-bold text-2xl sm:text-3xl whitespace-nowrap">
+            <Link to="/" className="text-primary/70 mr-auto font-bold text-2xl sm:text-3xl lg:text-4xl whitespace-nowrap hover:text-primary transition-colors duration-300">
                 <span>Note Base</span>
             </Link>
 
             {/* Mobile menu toggle */}
-            <button onClick={toggleMenu} className="sm:hidden p-2 rounded-md hover:bg-base-100/20" aria-label="Open navigation menu">
-                <Menu />
+            <button onClick={toggleMenu} className="sm:hidden p-2 rounded-lg hover:bg-base-100/20 transition-colors" aria-label="Open navigation menu">
+                <Menu className="size-6" />
             </button>
 
             {/* Desktop links */}
-            {user && location !== "/" && location !== "/admin-dashboard" && (
-                <Link to="/admin-dashboard">
-                    <p className="sm:block hidden font-bold text-lg hover:text-gray-400 duration-300 text-gray-200 tracking-tight">Admin Dashboard</p>
-                </Link>
-            )}
-            {user && location !== "/" && (
-                <Link to="/profile">
-                    <p className="sm:flex hidden items-center justify-center size-8 btn btn-primary rounded-full cursor-pointer">{user.fullName[0]}</p>
-                </Link>
-            )}
-            {location === "/" && (
-                <Link to="/signup" className="sm:flex hidden  gap-2 items-center bg-primary duration-500 hover:bg-primary/50 rounded-lg px-4 py-2">
-                    <UserPlusIcon className="size-5" />
-                    <span>Signup</span>
-                </Link>
-            )}
-            {location === "/" && (
-                <Link to="/login" className="sm:flex hidden  gap-2 items-center bg-base-100 duration-500 hover:bg-gray-700 rounded-lg px-4 py-2">
-                    <LogIn className="size-5" />
-                    <span>Login</span>
-                </Link>
-            )}
-            {location !== "/" && (
-                <Link to="/" onClick={handleLogout} className="sm:flex hidden  gap-2 items-center bg-base-100 duration-500 group hover:bg-gray-700 rounded-lg px-4 py-2">
-                    <span>Logout</span>
-                    <LogOut className="size-5 group-hover:translate-x-2 duration-300" />
-                </Link>
-            )}
+            <div className="hidden sm:flex items-center gap-4 lg:gap-6">
+                {user && location !== "/" && location !== "/admin-dashboard" && (
+                    <Link to="/admin-dashboard" className="font-semibold text-base lg:text-lg hover:text-primary duration-300 text-gray-200 tracking-tight transition-colors">
+                        <span>Admin Dashboard</span>
+                    </Link>
+                )}
+                {user && location !== "/" && (
+                    <Link to="/profile" className="flex items-center justify-center size-9 lg:size-10 btn btn-primary rounded-full cursor-pointer hover:scale-105 transition-transform duration-300">
+                        <span className="text-sm lg:text-base font-semibold">{user.fullName[0]}</span>
+                    </Link>
+                )}
+                {location === "/" && (
+                    <Link to="/signup" className="flex gap-2 items-center bg-primary duration-300 hover:bg-primary/80 rounded-lg px-5 py-2.5 font-medium transition-all hover:scale-105">
+                        <UserPlusIcon className="size-5" />
+                        <span>Signup</span>
+                    </Link>
+                )}
+                {location === "/" && (
+                    <Link to="/login" className="flex gap-2 items-center bg-base-100 duration-300 hover:bg-gray-700 rounded-lg px-5 py-2.5 font-medium transition-all hover:scale-105">
+                        <LogIn className="size-5" />
+                        <span>Login</span>
+                    </Link>
+                )}
+                {location !== "/" && (
+                    <Link
+                        to="/"
+                        onClick={handleLogout}
+                        className="flex gap-2 items-center bg-base-100 duration-300 group hover:bg-gray-700 rounded-lg px-5 py-2.5 font-medium transition-all hover:scale-105">
+                        <span>Logout</span>
+                        <LogOut className="size-5 group-hover:translate-x-2 duration-300" />
+                    </Link>
+                )}
+            </div>
         </header>
     );
 };

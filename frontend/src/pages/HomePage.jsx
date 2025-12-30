@@ -17,28 +17,28 @@ const HomePage = () => {
     }, [setNotes]);
 
     return (
-        <div className="max-w-6xl mx-auto flex flex-col items-center mb-12 px-4">
-            <div className="text-center">
-                <div className="inline-flex items-center gap-2 px-3 rounded-full bg-primary/10 border border-primary/20 text-primary text-xl font-medium mb-6 animate-pulse">
-                    <Sparkles className="size-3" />
+        <div className="max-w-6xl mx-auto flex flex-col items-center mb-16 px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6">
+            <div className="text-center mb-8 sm:mb-12">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm sm:text-base font-medium mb-6 sm:mb-8 animate-pulse">
+                    <Sparkles className="size-3.5 sm:size-4" />
                     <span>Welcome back to NoteBase</span>
                 </div>
 
-                <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-gradient-muted">
-                    Where thoughts <br /> become <span className="text-primary">clarity.</span>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 sm:mb-6 text-gradient-muted leading-tight">
+                    Where thoughts <br className="hidden sm:block" /> become <span className="text-primary">clarity.</span>
                 </h1>
 
-                <p className="text-gray-400 max-w-lg mx-auto text-lg leading-relaxed">Your digital sanctuary for ideas. Organized, secure, and always within reach.</p>
+                <p className="text-gray-400 max-w-lg mx-auto text-base sm:text-lg lg:text-xl leading-relaxed px-2">Your digital sanctuary for ideas. Organized, secure, and always within reach.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6 w-full max-w-5xl">
-                <HomeCard to="/add-note" icon={<PlusCircle className="size-8" />} title="Quick Note" description="Capture a thought before it's gone." color="hover:border-blue-500/50" />
-                <HomeCard to="/notes" icon={<BookOpen className="size-8" />} title="Library" description="Dive back into your collection of ideas." color="hover:border-accent/50" />
-                <HomeCard to="/search-notes" icon={<Search className="size-8" />} title="Search Vault" description="Locate any thought or tag instantly." color="hover:border-secondary/50" />
-                <HomeCard to="/note-dashboard" icon={<LayoutDashboard className="size-8" />} title="Insights" description="Analyze your productivity and habits." color="hover:border-purple-500/50" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full max-w-5xl">
+                <HomeCard to="/add-note" icon={<PlusCircle className="size-7 sm:size-8" />} title="Quick Note" description="Capture a thought before it's gone." color="hover:border-blue-500/50" />
+                <HomeCard to="/notes" icon={<BookOpen className="size-7 sm:size-8" />} title="Library" description="Dive back into your collection of ideas." color="hover:border-accent/50" />
+                <HomeCard to="/search-notes" icon={<Search className="size-7 sm:size-8" />} title="Search Vault" description="Locate any thought or tag instantly." color="hover:border-secondary/50" />
+                <HomeCard to="/note-dashboard" icon={<LayoutDashboard className="size-7 sm:size-8" />} title="Insights" description="Analyze your productivity and habits." color="hover:border-purple-500/50" />
             </div>
 
-            <p className="mt-6 text-base-content/40 text-sm font-medium tracking-widest uppercase opacity-50">"Small notes today become big ideas tomorrow."</p>
+            <p className="mt-8 sm:mt-10 text-base-content/40 text-xs sm:text-sm font-medium tracking-widest uppercase opacity-50 text-center px-4">"Small notes today become big ideas tomorrow."</p>
         </div>
     );
 };
@@ -47,13 +47,13 @@ const HomeCard = ({ to, icon, title, description, color }) => {
     return (
         <Link
             to={to}
-            className={`group relative bg-base-200/40 backdrop-blur-md border border-white/5 rounded-2xl px-8 py-4 transition-all duration-500 hover:-translate-y-2 hover:bg-base-200/80 ${color}`}>
+            className={`group relative bg-base-200/40 backdrop-blur-md border border-white/5 rounded-2xl px-5 sm:px-6 lg:px-8 py-5 sm:py-6 transition-all duration-500 hover:-translate-y-2 hover:bg-base-200/80 ${color}`}>
             <div className="card-glow-overlay" />
 
             <div className="relative">
-                <div className="mb-4 inline-block p-3 rounded-xl bg-base-300 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500">{icon}</div>
-                <h2 className="text-xl font-bold text-base-content/80 mb-2">{title}</h2>
-                <p className="text-gray-400 text-sm leading-relaxed">{description}</p>
+                <div className="mb-4 sm:mb-5 inline-block p-2.5 sm:p-3 rounded-xl bg-base-300 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500">{icon}</div>
+                <h2 className="text-lg sm:text-xl font-bold text-base-content/80 mb-2 sm:mb-3">{title}</h2>
+                <p className="text-gray-400 text-sm sm:text-base leading-relaxed">{description}</p>
             </div>
         </Link>
     );
