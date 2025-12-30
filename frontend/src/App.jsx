@@ -68,7 +68,6 @@ const App = () => {
             <AuthContext.Provider value={{ user, setUser, notes, setNotes, loading, fetching, setFetching }}>
                 <ScrollToTop />
                 {location !== "/login" && location !== "/signup" && <NavBar />}
-
                 <main className="relative z-10 pb-8 sm:pb-12">
                     <Routes>
                         <Route element={<PublicRoute />}>
