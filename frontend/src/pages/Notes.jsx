@@ -16,7 +16,7 @@ const Notes = () => {
                         <Link to="/add-note">
                             <p className="text-primary-content text-2xl text-center">Create your first note</p>
                         </Link>
-                        <Notebook className="rounded-full size-16 bg-primary text-center text-primary-content" />
+                        <Notebook className="size-16 text-center text-primary" />
                     </div>
                 ) : (
                     notes.map((note) => <NoteCard setNotes={setNotes} key={note._id} note={note} />)
