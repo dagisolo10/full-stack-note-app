@@ -25,9 +25,9 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="h-screen flex flex-col justify-center items-center">
-            <h1 className="text-center mb-4 text-primary text-4xl font-bold">Welcome back</h1>
-            <form onSubmit={handleSubmit} className="w-8/12 md:w-xl bg-base-200 px-6 py-4 flex flex-col items-center gap-5 rounded-lg">
+        <div className="min-h-screen flex flex-col justify-center items-center px-4 py-8">
+            <h1 className="text-center mb-4 text-primary text-3xl sm:text-4xl font-bold">Welcome back</h1>
+            <form onSubmit={handleSubmit} className="w-full max-w-md bg-base-200 px-6 py-5 flex flex-col items-center gap-5 rounded-lg">
                 <div className="flex w-full flex-col">
                     <label className="label" htmlFor="email">
                         Email   

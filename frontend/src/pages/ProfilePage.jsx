@@ -21,8 +21,7 @@ const ProfilePage = () => {
     if (!user) return null;
 
     return (
-        /* pt-24 to clear your fixed NavBar */
-        <div className="max-w-4xl mx-auto px-6 flex flex-col items-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 flex flex-col items-center pb-10">
             {/* Header / Back Link */}
             <div className="w-full flex justify-start mb-8">
                 <Link to="/home" className="inline-flex items-center gap-2 text-gray-500 group hover:text-primary transition-colors font-medium uppercase text-xs tracking-widest">
@@ -35,7 +34,7 @@ const ProfilePage = () => {
             <div className="group relative w-full bg-base-200/40 backdrop-blur-md border border-white/5 rounded-4xl p-8 md:p-12 transition-all duration-500 hover:border-primary/20 shadow-2xl">
                 {/* <div className="card-glow-overlay opacity-10" /> */}
 
-                <div className="relative flex flex-col md:flex-row items-center gap-10">
+                <div className="relative flex flex-col md:flex-row items-center md:items-start gap-10">
                     {/* Avatar Section */}
                     <div className="relative">
                         <div className="size-32 rounded-3xl bg-linear-to-br from-primary/20 to-purple-500/20 border border-white/10 flex items-center justify-center shadow-inner">

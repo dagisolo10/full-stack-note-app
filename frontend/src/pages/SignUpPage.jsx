@@ -26,9 +26,9 @@ const SignUpPage = () => {
         navigate("/home");
     };
     return (
-        <div className="h-screen flex flex-col justify-center items-center">
-            <h1 className="text-center mb-4 text-primary text-4xl font-bold">Create your account</h1>
-            <form onSubmit={handleSubmit} className="w-10/12 md:w-xl bg-base-200 px-6 py-4 flex flex-col items-center gap-1 md:gap-3 rounded-lg">
+        <div className="min-h-screen flex flex-col justify-center items-center px-4 py-8">
+            <h1 className="text-center mb-4 text-primary text-3xl sm:text-4xl font-bold">Create your account</h1>
+            <form onSubmit={handleSubmit} className="w-full max-w-md bg-base-200 px-6 py-5 flex flex-col items-center gap-2 md:gap-3 rounded-lg">
                 <div className="flex w-full flex-col">
                     <label className="label" htmlFor="fullName">
                         Full Name

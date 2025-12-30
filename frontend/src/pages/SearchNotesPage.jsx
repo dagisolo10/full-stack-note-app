@@ -27,8 +27,9 @@ const SearchNotesPage = () => {
         });
 
     return (
-        <div className="h-screen flex items-start justify-between gap-4 max-w-11/12 mx-auto">
-            <div className="flex flex-col gap-4 items-start">
+        <div className="min-h-screen flex flex-col lg:flex-row items-start justify-between gap-6 max-w-6xl mx-auto px-4 pb-8">
+            {/* Filters / sidebar */}
+            <div className="flex flex-col gap-4 items-start w-full lg:max-w-xs">
                 <h1 className="text-4xl">
                     Search <span className="text-primary">Note</span>
                 </h1>
@@ -72,7 +73,9 @@ const SearchNotesPage = () => {
                     ))}
                 </div>
             </div>
-            <div className="grid grid-col-1 md:grid-cols-2 gap-4 grow scrollbar-thin h-full">
+
+            {/* Results grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 grow scrollbar-thin w-full">
                 {displayNotes.length === 0 ? (
                     <div className="col-span-full flex flex-col items-center justify-center opacity-50">
                         <Search className="size-12 mb-4" />

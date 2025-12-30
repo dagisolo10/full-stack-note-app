@@ -96,8 +96,8 @@ const UpdateNotePage = () => {
     };
 
     return (
-        <div className="h-screen pb-4 pt-16">
-            <div className="max-w-[90%] h-full mx-auto flex flex-col items-start px-6">
+        <div className="min-h-screen pb-4 pt-16">
+            <div className="max-w-4xl w-full mx-auto flex flex-col items-start px-4 sm:px-6">
                 {/* Header */}
                 <div className="w-full flex items-center justify-between mb-4">
                     <Link to="/home" className="group flex items-center gap-2 text-white/40 hover:text-primary transition-colors">
@@ -134,8 +134,8 @@ const UpdateNotePage = () => {
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="bg-base-100/10 backdrop-blur-sm w-full flex flex-col gap-2 grow border border-primary-content/20 rounded-2xl p-6">
-                    <div className="flex items-center gap-8">
+                <form onSubmit={handleSubmit} className="bg-base-100/10 backdrop-blur-sm w-full flex flex-col gap-2 grow border border-primary-content/20 rounded-2xl p-4 sm:p-6">
+                    <div className="flex flex-wrap items-center gap-4 sm:gap-8">
                         <input
                             onChange={(e) => setNote({ ...note, title: e.target.value })}
                             value={note.title}

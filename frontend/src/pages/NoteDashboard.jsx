@@ -41,7 +41,7 @@ const NoteDashboard = () => {
     ];
 
     return (
-        <div className="max-w-11/12 mx-auto">
+        <div className="max-w-6xl mx-auto px-4 pb-10">
             <div>
                 <div className="mb-6">
                     <h1 className="text-4xl font-bold flex items-center gap-3">
