@@ -31,6 +31,7 @@ const NoteCard = ({ note, setNotes }) => {
         setNotes((prev) => prev.map((note) => (note._id === noteId ? { ...note, favorite: !favorite } : note)));
     };
     const handleDelete = async (noteId) => {
+        if (!window.confirm("Are you sure you want to delete this note?")) return;
         await toast.promise(api.delete(`/notes/delete/${noteId}`), {
             loading: "Deleing note...",
             success: (res) => res?.data?.message || "Note deleted successfully",
