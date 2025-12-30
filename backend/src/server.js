@@ -10,10 +10,10 @@ const errorMiddleware = require("./middlewares/error.middleware");
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 app.use(
     cors({
-        origin: process.env.CLIENT_URL,
+        origin: ["http://localhost:5173", process.env.CLIENT_URL].filter(Boolean),
         credentials: true,
     })
 );
@@ -26,5 +26,5 @@ app.use("/notes", noteRoutes);
 app.use(errorMiddleware);
 
 connectDB().then(() => {
-    app.listen(PORT, () => console.log(`Server running on http://locallost:${PORT}`));
+    app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
 });

@@ -4,3 +4,17 @@ node_modules
 dist
 build
 .prettierrc
+
+# Environment files (don't commit secrets!)
+backend/.env
+frontend/.env
+*.env.local
+*.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor directories
+.vscode
+.idea
