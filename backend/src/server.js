@@ -1,5 +1,6 @@
-require("dotenv").config();
 const cors = require("cors");
+const path = require("path");
+const dotenv = require("dotenv");
 const express = require("express");
 const connectDB = require("./config/db");
 const cookieParser = require("cookie-parser");
@@ -8,6 +9,7 @@ const userRoutes = require("./routes/user.route");
 const noteRoutes = require("./routes/note.route");
 const errorMiddleware = require("./middlewares/error.middleware");
 
+dotenv.config();
 const app = express();
 const PORT = process.env.PORT;
 app.use(
