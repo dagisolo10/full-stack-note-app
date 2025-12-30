@@ -56,11 +56,11 @@ const NoteCard = ({ note, setNotes }) => {
                 <div className="flex items-center gap-2 transition-opacity duration-300">
                     <Pin
                         onClick={() => handlePin(note._id, note.isPinned)}
-                        className={`size-4 cursor-pointer group-hover:opacity-100 transition-all ${note.isPinned ? "text-primary fill-primary rotate-45" : "text-white/20 opacity-0 hover:text-white"}`}
+                        className={`size-4 cursor-pointer transition-all sm:opacity-0 sm:group-hover:opacity-100 ${note.isPinned ? "text-primary fill-primary rotate-45 opacity-100" : "text-white/20 hover:text-white opacity-100 sm:opacity-0"}`}
                     />
                     <Star
                         onClick={() => handleFav(note._id, note.favorite)}
-                        className={`size-4 cursor-pointer group-hover:opacity-100 transition-all ${note.favorite ? "text-yellow-500 fill-yellow-500" : "text-white/20 opacity-0  hover:text-white"}`}
+                        className={`size-4 cursor-pointer transition-all sm:opacity-0 sm:group-hover:opacity-100 ${note.favorite ? "text-yellow-500 fill-yellow-500 opacity-100" : "text-white/20 hover:text-white opacity-100 sm:opacity-0"}`}
                     />
                 </div>
             </div>
