@@ -17,7 +17,7 @@ const HomePage = () => {
     }, [setNotes]);
 
     return (
-        <div className="max-w-6xl mx-auto flex flex-col items-center mb-16 px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6">
+        <div className="max-w-6xl mx-auto flex flex-col items-center mb-16 px-4 sm:px-6 lg:px-8 sm:pt-4">
             <div className="text-center mb-8 sm:mb-12">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm sm:text-base font-medium mb-6 sm:mb-8 animate-pulse">
                     <Sparkles className="size-3.5 sm:size-4" />
