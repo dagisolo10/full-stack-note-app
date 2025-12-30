@@ -61,12 +61,13 @@ const NavBar = () => {
                         <p className="duration-500 text-primary-content hover:text-gray-700">Profile</p>
                     </Link>
                 )}
-                {user && location !== "/" && location !== "/admin-dashboard" && (
+                {user && user.role === "admin" && location !== "/" && location !== "/admin-dashboard" && (
                     <Link onClick={() => setMenu((p) => (p = !p))} to="/admin-dashbaord">
                         <p className="duration-500 text-primary-content hover:text-gray-700">Admin Dashboard</p>
                     </Link>
                 )}
             </div>
+
             <Link to="/" className="text-primary/70 mr-auto font-bold text-3xl">
                 <span>Note Base</span>
             </Link>
