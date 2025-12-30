@@ -96,21 +96,32 @@ const UpdateNotePage = () => {
     };
 
     return (
-        <div className="min-h-screen pb-6 sm:pb-8 pt-20 sm:pt-24">
+        <div className="min-h-screen pb-4">
             <div className="max-w-4xl w-full mx-auto flex flex-col items-start px-4 sm:px-6 lg:px-8">
                 {/* Header */}
+
                 <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 sm:mb-6 gap-4">
                     <Link to="/home" className="group flex items-center gap-2 text-white/40 hover:text-primary transition-colors">
                         <ChevronLeft className="size-5 group-hover:-translate-x-1 duration-300" />
                         <span className="text-xs font-bold uppercase tracking-[0.2em]">Exit Editor</span>
                     </Link>
 
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 w-full sm:w-auto">
-                        <div className="flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest transition-opacity duration-300">
+                    <div className="flex sm:flex-row items-center sm:items-center gap-3 sm:gap-6 w-full sm:w-auto">
+                        <div className="flex sm:flex-row-reverse items-center gap-4 text-[10px] sm:text-xs font-bold uppercase tracking-widest transition-opacity duration-300">
+                            <button
+                                type="button"
+                                disabled={autoSync || isInitializing}
+                                onClick={handleSubmit}
+                                className={`${
+                                    autoSync || isInitializing ? "opacity-20 cursor-not-allowed bg-base-300" : "bg-primary/30 hover:bg-primary/70 cursor-pointer"
+                                } flex items-center gap-2 text-primary-content px-5 sm:px-6 py-2 sm:py-2.5 rounded-full font-medium duration-300 transition-all text-sm sm:text-base`}>
+                                <Save className="size-4" />
+                                <span>{isInitializing ? "Connecting..." : "Save Note"}</span>
+                            </button>
                             {isSaving ? (
                                 <span className="text-primary animate-pulse flex items-center gap-2">
                                     <div className="size-1.5 rounded-full bg-primary" />
-                                    <span>Syncing...</span>
+                                    <span>Saving...</span>
                                 </span>
                             ) : (
                                 <span className="text-base-content/30 flex items-center gap-2">
@@ -119,22 +130,13 @@ const UpdateNotePage = () => {
                                 </span>
                             )}
                         </div>
-
-                        <button
-                            type="button"
-                            disabled={autoSync || isInitializing}
-                            onClick={handleSubmit}
-                            className={`${
-                                autoSync || isInitializing ? "opacity-20 cursor-not-allowed bg-base-300" : "bg-primary/30 hover:bg-primary/70 cursor-pointer"
-                            } flex items-center gap-2 text-primary-content px-5 sm:px-6 py-2 sm:py-2.5 rounded-full font-medium duration-300 transition-all text-sm sm:text-base`}>
-                            <Save className="size-4" />
-                            <span>{isInitializing ? "Connecting..." : "Save Note"}</span>
-                        </button>
                     </div>
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="bg-base-100/10 backdrop-blur-sm w-full flex flex-col gap-3 sm:gap-4 grow border border-primary-content/20 rounded-2xl p-4 sm:p-6 min-h-[500px] sm:min-h-[600px]">
+                <form
+                    onSubmit={handleSubmit}
+                    className="bg-base-100/10 backdrop-blur-sm w-full flex flex-col gap-3 sm:gap-4 grow border border-primary-content/20 rounded-2xl p-4 sm:p-6 min-h-[500px] sm:min-h-[600px]">
                     <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                         <input
                             onChange={(e) => setNote({ ...note, title: e.target.value })}
@@ -152,17 +154,13 @@ const UpdateNotePage = () => {
                                 type="button"
                                 onClick={() => setNote({ ...note, isPinned: !note.isPinned })}
                                 className={`p-2 rounded-lg transition-colors ${note.isPinned ? "bg-primary/20" : "hover:bg-white/5"}`}>
-                                <Pin
-                                    className={`size-5 cursor-pointer duration-300 ${note.isPinned ? "text-primary fill-primary rotate-45" : "text-white/20 hover:text-primary"}`}
-                                />
+                                <Pin className={`size-5 cursor-pointer duration-300 ${note.isPinned ? "text-primary fill-primary rotate-45" : "text-white/20 hover:text-primary"}`} />
                             </button>
                             <button
                                 type="button"
                                 onClick={() => setNote({ ...note, favorite: !note.favorite })}
                                 className={`p-2 rounded-lg transition-colors ${note.favorite ? "bg-yellow-500/20" : "hover:bg-white/5"}`}>
-                                <Star
-                                    className={`size-5 cursor-pointer duration-300 ${note.favorite ? "text-yellow-500 fill-yellow-500" : "text-white/20 hover:text-yellow-500"}`}
-                                />
+                                <Star className={`size-5 cursor-pointer duration-300 ${note.favorite ? "text-yellow-500 fill-yellow-500" : "text-white/20 hover:text-yellow-500"}`} />
                             </button>
                         </div>
                     </div>
@@ -198,7 +196,9 @@ const UpdateNotePage = () => {
                     />
                 </form>
 
-                <p className="w-full text-center mt-6 sm:mt-8 text-[10px] sm:text-xs text-base-content/40 font-bold uppercase tracking-[0.4em] px-4">Your words are automatically saved to your local vault</p>
+                <p className="w-full text-center mt-6 sm:mt-8 text-[10px] sm:text-xs text-base-content/40 font-bold uppercase tracking-[0.4em] px-4">
+                    Your words are automatically saved to your local vault
+                </p>
             </div>
         </div>
     );

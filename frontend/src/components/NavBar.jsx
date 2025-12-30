@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import api from "../config/axios";
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/AuthContext";
+import SideBarButton from "./SideBarButton";
 
 const NavBar = () => {
     const location = useLocation().pathname;
@@ -11,7 +12,6 @@ const NavBar = () => {
     const { user, setUser } = useContext(AuthContext);
     const [menu, setMenu] = useState(false);
 
-    // console.log(user)
     const handleLogout = async () => {
         try {
             await toast.promise(api.post("/auth/logout"), {
@@ -38,40 +38,29 @@ const NavBar = () => {
             <div
                 className={`fixed top-0 ${
                     menu ? "right-0" : "-right-full"
-                } transition-all duration-300 bg-gray-900/95 backdrop-blur-md h-screen w-3/4 max-w-xs z-50 sm:hidden flex flex-col gap-8 items-start p-8`}>
+                } transition-all duration-500 bg-gray-900/75 backdrop-blur-md h-screen w-3/4 max-w-xs z-50 sm:hidden flex flex-col gap-3 items-start p-8`}>
                 <button onClick={closeMenu} aria-label="Close navigation menu" className="mb-2 p-2 hover:bg-white/10 rounded-lg transition-colors">
-                    <X className="size-6" />
+                    <X className="size-5" />
                 </button>
+
+                {location === "/" && <SideBarButton onClick={closeMenu} to="/signup" text="Signup" />}
+                {location === "/" && <SideBarButton onClick={closeMenu} to="/login" text="Login" />}
+                {location !== "/" && <SideBarButton onClick={closeMenu} to="/profile" text="Profile" />}
+                {user && location !== "/" && user.role === "admin" && <SideBarButton onClick={closeMenu} to="/admin-dashbaord" text="Admin Dashboard" />}
+                {location !== "/" && <SideBarButton onClick={closeMenu} to="/home" text="Home" />}
+                {location !== "/" && <SideBarButton onClick={closeMenu} to="/notes" text="Notes" />}
+                {location !== "/" && <SideBarButton onClick={closeMenu} to="/note-dashboard" text="Notes Overview" />}
+                {location !== "/" && <SideBarButton onClick={closeMenu} to="/add-note" text="Add Note" />}
+                {location !== "/" && <SideBarButton onClick={closeMenu} to="/search-notes" text="Search Note" />}
                 {location !== "/" && (
-                    <Link
-                        to="/"
+                    <SideBarButton
                         onClick={() => {
                             handleLogout();
                             closeMenu();
                         }}
-                        className="duration-300 text-primary-content hover:text-primary text-lg font-medium py-2">
-                        <span>Logout</span>
-                    </Link>
-                )}
-                {location === "/" && (
-                    <Link to="/signup" onClick={closeMenu} className="duration-300 text-primary-content hover:text-primary text-lg font-medium py-2">
-                        <span>Signup</span>
-                    </Link>
-                )}
-                {location === "/" && (
-                    <Link to="/login" onClick={closeMenu} className="duration-300 text-primary-content hover:text-primary text-lg font-medium py-2">
-                        <span>Login</span>
-                    </Link>
-                )}
-                {user && location !== "/profile" && (
-                    <Link onClick={closeMenu} to="/profile" className="duration-300 text-primary-content hover:text-primary text-lg font-medium py-2">
-                        <span>Profile</span>
-                    </Link>
-                )}
-                {user && user.role === "admin" && location !== "/" && location !== "/admin-dashboard" && (
-                    <Link onClick={closeMenu} to="/admin-dashboard" className="duration-300 text-primary-content hover:text-primary text-lg font-medium py-2">
-                        <span>Admin Dashboard</span>
-                    </Link>
+                        to="/"
+                        text="Logout"
+                    />
                 )}
             </div>
 
