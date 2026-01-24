@@ -5,15 +5,10 @@ const ScrollToTop = () => {
     const { pathname } = useLocation();
 
     useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth", // Use "instant" for immediate scroll, or "smooth" for animated scroll
-        });
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     }, [pathname]);
 
     return null;
 };
 
 export default ScrollToTop;
-

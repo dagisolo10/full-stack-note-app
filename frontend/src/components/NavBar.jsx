@@ -46,7 +46,7 @@ const NavBar = () => {
                 {location === "/" && <SideBarButton onClick={closeMenu} to="/signup" text="Signup" />}
                 {location === "/" && <SideBarButton onClick={closeMenu} to="/login" text="Login" />}
                 {location !== "/" && <SideBarButton onClick={closeMenu} to="/profile" text="Profile" />}
-                {user && location !== "/" && user.role === "admin" && <SideBarButton onClick={closeMenu} to="/admin-dashbaord" text="Admin Dashboard" />}
+                {user && location !== "/" && user.role === "admin" && <SideBarButton onClick={closeMenu} to="/admin-dashboard" text="Admin Dashboard" />}
                 {location !== "/" && <SideBarButton onClick={closeMenu} to="/home" text="Home" />}
                 {location !== "/" && <SideBarButton onClick={closeMenu} to="/notes" text="Notes" />}
                 {location !== "/" && <SideBarButton onClick={closeMenu} to="/note-dashboard" text="Notes Overview" />}

@@ -53,13 +53,11 @@ const App = () => {
     return (
         <div className="relative min-h-screen w-full">
             <div className="fixed inset-0 pointer-events-none -z-50">
-                {/* grid boxes - behind everything */}
                 <div className="absolute inset-0 grid grid-box w-full z-0">
                     {[...Array(400)].map((_, i) => (
                         <div key={i} className="relative w-full border-gray-50/10 border-b border-l aspect-square" />
                     ))}
                 </div>
-                {/* glow effect - on top of grid */}
                 <div className="absolute inset-0 left-1/2 -translate-x-1/2 w-full h-screen z-10">
                     <div className="w-full h-full background-glow" />
                 </div>
