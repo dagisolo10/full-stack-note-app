@@ -86,7 +86,7 @@ const AddNotePage = () => {
     };
 
     return (
-        <div className="min-h-screen pb-6 sm:pb-8 sm:pt-12">
+        <div className="min-h-screen pb-6 sm:pb-8">
             <div className="max-w-4xl w-full mx-auto flex flex-col items-start px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 sm:mb-6 gap-4">
